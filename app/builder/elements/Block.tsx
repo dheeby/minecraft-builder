@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Mesh } from "three";
+import type { BufferGeometry, Material, Mesh, NormalBufferAttributes, Object3DEventMap } from "three";
 import type { Vector3 } from "@react-three/fiber";
 import { Select } from "@react-three/postprocessing";
 
@@ -35,7 +35,8 @@ export default function Block({ block, position, onClick }: Props) {
         position={position}
         onClick={(e) => {
           e.stopPropagation();
-          onClick(e.object);
+          // TODO: Don't type-cast this - find out the right type to use from three for the BlockProps's mouse events
+          onClick(e.object as Mesh<BufferGeometry<NormalBufferAttributes>, Material | Material[], Object3DEventMap>);
         }}
         onPointerOver={(e) => {
           e.stopPropagation();

@@ -1,5 +1,4 @@
-import type { ThreeEvent } from "@react-three/fiber";
-import { Vector3 } from "three";
+import type { ThreeEvent, Vector3 } from "@react-three/fiber";
 
 export enum BlockName {
   Sandstone,
@@ -38,8 +37,8 @@ export interface BlockProps {
   block: BlockName;
   position: Vector3;
   onClick: (event: ThreeEvent<MouseEvent>) => void;
-  onPointerOver: () => void;
-  onPointerOut: () => void;
+  onPointerOver: (event: ThreeEvent<MouseEvent>) => void;
+  onPointerOut: (event: ThreeEvent<MouseEvent>) => void;
 }
 
 export interface BlockState {

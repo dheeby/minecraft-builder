@@ -55,7 +55,7 @@ const INITIAL_BLOCKS: BlockState[] = [
   },
 ];
 
-const WHITE_HEX = 0xFFFFFF;
+const WHITE_HEX = 0xffffff;
 
 interface SceneProps {
   blocks: BlockState[];
@@ -84,7 +84,7 @@ function Scene({ blocks, setEditObject }: SceneProps) {
         </EffectComposer>
         {blocks.map(({ block, position }) => (
           <Block
-            key={`${position.x}${position.y}${position.z}`}
+            key={position.toString()}
             block={block}
             position={position}
             onClick={onClick}
@@ -98,7 +98,7 @@ function Scene({ blocks, setEditObject }: SceneProps) {
 export default function BuilderCanvas() {
   const [editObject, setEditObject] = useState<Mesh>();
   const [blocks] = useState<BlockState[]>(INITIAL_BLOCKS);
-  
+
   return (
     <div className={styles.container}>
       <Controls />
