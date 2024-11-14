@@ -55,6 +55,8 @@ const INITIAL_BLOCKS: BlockState[] = [
   },
 ];
 
+const WHITE_HEX = 0xFFFFFF;
+
 interface SceneProps {
   blocks: BlockState[];
   setEditObject: Dispatch<SetStateAction<Mesh | undefined>>;
@@ -75,7 +77,7 @@ function Scene({ blocks, setEditObject }: SceneProps) {
         <EffectComposer multisampling={8} autoClear={false}>
           <Outline
             blur
-            visibleEdgeColor="white"
+            visibleEdgeColor={WHITE_HEX}
             edgeStrength={100}
             width={1000}
           />
@@ -94,9 +96,9 @@ function Scene({ blocks, setEditObject }: SceneProps) {
 }
 
 export default function BuilderCanvas() {
-  const [editing, setEditing] = useState<boolean>(false);
   const [editObject, setEditObject] = useState<Mesh>();
-  const [blocks, setBlocks] = useState<BlockState[]>(INITIAL_BLOCKS);
+  const [blocks] = useState<BlockState[]>(INITIAL_BLOCKS);
+  
   return (
     <div className={styles.container}>
       <Controls />

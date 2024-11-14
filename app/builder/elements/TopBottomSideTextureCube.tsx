@@ -1,5 +1,5 @@
-import { type ThreeEvent, type Vector3, useLoader } from "@react-three/fiber";
-import { type Mesh, TextureLoader } from "three";
+import { useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three";
 import { BRICK_DIMENSIONS } from "../constants";
 import { BlockName, BlockProps } from "../types";
 
