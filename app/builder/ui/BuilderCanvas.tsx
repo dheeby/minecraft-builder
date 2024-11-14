@@ -11,8 +11,8 @@ import {
 } from "@react-three/postprocessing";
 
 import Controls from "./Controls";
-import Block from "./elements/Block";
-import { BlockName, BlockState } from "./types";
+import Block from "../elements/Block";
+import { BlockName, BlockState } from "../types";
 
 import styles from "./BuilderCanvas.module.css";
 
